@@ -1,23 +1,32 @@
 name: Push-to-EC2
+
 on:
   push:
     branches:
       - main
+
 jobs:
   deploy:
     name: Deploy to EC2
     runs-on: ubuntu-latest
+
     steps:
     - name: Checkout the files
       uses: actions/checkout@v3
 
-    - name: Copy files with SSH
-      uses: easingthemes/ssh-deploy@main
-      env:
-        SSH_PRIVATE_KEY: ${{secrets.SERVIDOR_AULA}}
-        ARGS: "-rltgoDzvO --delete"
-        SOURCE: "./"
-        REMOTE_HOST: "107.23.129.213"
-        REMOTE_USER: "ubuntu"
-        TARGET: "/home/ubuntu/aula"
-        EXCLUDE: "/dist/, /node_modules/, **.env, rebuild_app.sh, watcher.sh"
+    - name: Setup SSH key
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ secrets.SERVIDOR_AULA }}" > ~/.ssh/deploy_key
+        chmod 600 ~/.ssh/deploy_key
+        ssh-keyscan -H ec2-107-23-129-213.compute-1.amazonaws.com >> ~/.ssh/known_hosts
+
+    - name: Verify SSH key
+      run: |
+        ls -la ~/.ssh
+        cat ~/.ssh/deploy_key
+      # Este passo é apenas para verificação e pode ser removido depois de confirmar que a chave está correta.
+
+    - name: Test SSH connection
+      run: |
+        ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no ubuntu@ec2-107-23-129-213.compute-1.amazonaws.com "echo SSH connection established"
