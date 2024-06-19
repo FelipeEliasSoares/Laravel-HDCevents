@@ -30,7 +30,3 @@ jobs:
     - name: Test SSH connection
       run: |
         ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no ubuntu@ec2-107-23-129-213.compute-1.amazonaws.com "echo SSH connection established"
-
-    - name: Copiar arquivos com SSH
-      run: |
-        rsync -rltgoDzvO --delete -e "ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no" ./ ubuntu@ec2-107-23-129-213.compute-1.amazonaws.com:/var/www/html/
