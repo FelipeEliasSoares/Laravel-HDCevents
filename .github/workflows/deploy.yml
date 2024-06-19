@@ -14,10 +14,10 @@ jobs:
     - name: Copy files with SSH
       uses: easingthemes/ssh-deploy@main
       env:
-        SSH_PRIVATE_KEY: ${{secrets.EC2_SSH_KEY}}
+        SSH_PRIVATE_KEY: ${{secrets.SERVIDOR_AULA}}
         ARGS: "-rltgoDzvO --delete"
         SOURCE: "./"
-        REMOTE_HOST: "107.23.129.213"
+        REMOTE_HOST: "54.163.214.113"
         REMOTE_USER: "ubuntu"
         TARGET: "/var/www/html/"
        
