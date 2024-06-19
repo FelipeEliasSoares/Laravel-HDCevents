@@ -21,10 +21,14 @@ jobs:
         chmod 600 ~/.ssh/deploy_key
         ssh-keyscan -H ec2-107-23-129-213.compute-1.amazonaws.com >> ~/.ssh/known_hosts
 
-    - name: Debug SSH setup
+    - name: Verify SSH key
       run: |
         ls -la ~/.ssh
-        cat ~/.ssh/known_hosts
+        cat ~/.ssh/deploy_key
+      # Este passo é apenas para verificação e pode ser removido depois de confirmar que a chave está correta.
+
+    - name: Test SSH connection
+      run: |
         ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no ubuntu@ec2-107-23-129-213.compute-1.amazonaws.com "echo SSH connection established"
 
     - name: Copiar arquivos com SSH
