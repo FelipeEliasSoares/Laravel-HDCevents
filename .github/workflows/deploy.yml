@@ -11,22 +11,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout the files
-      uses: actions/checkout@v3
+      - name: Checkout the repository
+        uses: actions/checkout@v2
 
-    - name: Setup SSH key
-      run: |
-        mkdir -p ~/.ssh
-        echo "${{ secrets.SERVIDOR_AULA }}" > ~/.ssh/deploy_key
-        chmod 600 ~/.ssh/deploy_key
-        ssh-keyscan -H ec2-107-23-129-213.compute-1.amazonaws.com >> ~/.ssh/known_hosts
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SERVIDOR_AULA }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -H ec2-107-23-129-213.compute-1.amazonaws.com >> ~/.ssh/known_hosts
 
-    - name: Verify SSH key
-      run: |
-        ls -la ~/.ssh
-        cat ~/.ssh/deploy_key
-      # Este passo é apenas para verificação e pode ser removido depois de confirmar que a chave está correta.
+      - name: Verify SSH key and known hosts
+        run: |
+          ls -l ~/.ssh
+          cat ~/.ssh/deploy_key
+          cat ~/.ssh/known_hosts
+        # Este passo é apenas para verificação e pode ser removido depois de confirmar que as chaves e hosts estão configurados corretamente.
 
-    - name: Test SSH connection
-      run: |
-        ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no ubuntu@ec2-107-23-129-213.compute-1.amazonaws.com "echo SSH connection established"
+      - name: Test SSH connection
+        run: |
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no ubuntu@ec2-107-23-129-213.compute-1.amazonaws.com "echo SSH connection established"
