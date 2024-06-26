@@ -83,7 +83,7 @@ header{
 
 #events-container{
     padding: 50px 0;
-    margin-left: 20px;
+    
 }
 
 #events-container h2{
@@ -109,8 +109,30 @@ header{
 
 #events-container .card img{
     max-height: 150px;
+    object-fit: cover;
     border-top-left-radius:10x ;
     border-top-right-radius:10px ;
+}
+
+/* Event create page */
+#event-create-container{
+    padding: 30px;
+}
+
+#event-create-container label{
+    font-weight: bold;
+}
+
+#event-create-container input, #event-create-container select, #event-create-container textarea{
+    font-size: 14px;
+}
+
+#event-create-container .form-group {
+    margin-top: 20px;
+}
+
+#btn-form-create {
+    margin-top: 20px;
 }
 
 .card .card-date{

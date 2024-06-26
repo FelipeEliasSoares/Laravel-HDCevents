@@ -19,7 +19,7 @@
         <script src="/js/scritp.js"></script>
     </head>
     <body>
-        <header>
+        <header class="container-fluid">
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="collapse navbar-collapse" id="navbar">
                     <a href="/" class="navbar-brand">
