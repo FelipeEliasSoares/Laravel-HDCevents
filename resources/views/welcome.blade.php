@@ -14,13 +14,13 @@
     <p class="subtitle text-center"> Veja os eventos dos próximos dias</p>
     <div id="cards-container" class="row justify-content-center">
         @foreach($events as $event)
-        <div class="card col-md-4 m-3">
-            <img src="/img/event_placeholder.jpg" alt="{{ $event->title }}">
+        <div class="card col-md-4">
+            <img src="/img/events/{{ $event-> image }}" alt="{{ $event->title }}">
             <div class="card-body">
                 <p class="card-date">25/06/2024</p>
                 <h5 class="card-title"> {{ $event->title }} </h5>
                 <p class="card-participants"> X Participantes </p>
-                <a href="#" class="btn btn-primary">Saber mais</a>
+                <a href="/events/{{ $event->id }}" class="btn btn-primary">Saber mais</a>
             </div>
         </div>
         @endforeach

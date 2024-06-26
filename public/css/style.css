@@ -34,6 +34,16 @@ header{
     border-color: #C28008;
 }
 
+.msg{
+    background-color: #D4EDDA;
+    color: #155724;
+    border: 1px solid #C3E6CB;
+    width: 100%;
+    margin-bottom: 0 ;
+    text-align: center;
+    padding: 10px;
+}
+
 /* Navbar */
 
 
@@ -100,11 +110,11 @@ header{
 }
 
 #events-container .card{
-    flex: 1 1 0;
+    flex: 1 1 24%;
     max-width: 25%;
     border-radius: 10px;
     padding: 0;
-    margin: 5px;
+    margin: .5%;
 }
 
 #events-container .card img{
@@ -133,6 +143,45 @@ header{
 
 #btn-form-create {
     margin-top: 20px;
+}
+
+/* Event  page */
+#image-container,
+#info-container{
+    margin-top: 30px;
+}
+
+#image-container img{
+    width: 100%;
+    border-radius: 10px;
+}
+
+#info-container h1{
+    font-size: 36px;
+    font-weight: 900;
+}
+
+#info-container p{
+    margin: 0;
+    font-size: 16px;
+    display: flex;
+}
+
+#info-container h3,
+#description-container h3{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#info-container ion-icon{
+    font-size: 20px;
+    color: #F2A340;
+    margin-right: 5px;
+}
+
+#info-container #event-submit{
+    margin: 20px 0;
+
 }
 
 .card .card-date{
