@@ -4,18 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+Use App\Models\Event;
+
 class EventController extends Controller
 {
     public function index()
     {
-        $nome = 'João';
-        $idade = 30;
-        
-        $arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        $events = Event::all();
 
-        $nomes = ['João', 'Maria', 'José', 'Pedro', 'Ana'];
-
-        return view('welcome', ['nome' => $nome, 'idade' => $idade, 'trabalho' => 'Programador', 'arr' => $arr , 'nomes' => $nomes]);
+        return view('welcome', ['events' => $events]);
     }
 
     public function create()
@@ -23,20 +20,39 @@ class EventController extends Controller
         return view('events.create');
     }
 
-    public function contact()
+    public function store(Request $request)
     {
-        return view('contato');
+        $event = new Event;
+
+        $event->title = $request->title;
+        $event->date = $request->date;
+        $event->city = $request->city;
+        $event->private = $request->private;
+        $event->description = $request->description;
+        $event->items = $request->items;
+        
+        // Image upload
+        if($request->hasFile('image') && $request->file('image')->isValid()) {
+            $requestImage = $request->image;
+            $extension = $requestImage->extension();
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+            $requestImage->move(public_path('img/events'), $imageName);
+            $event->image = $imageName;
+        }
+        
+
+        $event->save();
+
+        return redirect('/')->with('msg', 'Evento criado com sucesso!');
     }
 
-    public function produtos()
+    public function show($id)
     {
-        $busca = request('search');
+        $event = Event::findOrFail($id);
 
-        return view('produtos', ['busca' => $busca]);
+        return view('events.show', ['event' => $event]);
     }
 
-    public function produtos_teste($id = null)
-    {
-        return view('product', ['id' => $id]);
-    }
 }
+
+

@@ -19,7 +19,7 @@
         <script src="/js/scritp.js"></script>
     </head>
     <body>
-        <header>
+        <header class="container-fluid">
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="collapse navbar-collapse" id="navbar">
                     <a href="/" class="navbar-brand">
@@ -43,7 +43,15 @@
                 </div>
             </nav>
         </header>
-        @yield('content')
+        <main>
+            <div class="container-fluid">
+                <div class="row">
+                    @if(session('msg'))
+                        <p class="msg">{{ session('msg') }}</p>
+                    @endif
+                    @yield('content')
+                </div>
+            </div>
         <footer>
             <p>
                 HDC Events &copy; 2024
