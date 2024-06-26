@@ -184,6 +184,15 @@ header{
 
 }
 
+#items-list{
+    list-style: none;
+    padding-left: 0;
+}	
+
+#items-list li{
+    display: flex;
+}
+
 .card .card-date{
     font-size: 12px;
     color: #ccc;
