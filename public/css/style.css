@@ -214,6 +214,19 @@ header{
     color: #757575;
 }
 
+
+/* Dashboard */
+.dashoboard-title-container{
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.dashoboard-events-container th{
+    font-size: 36px;
+    font-weight: 900;
+}
+
+/* Footer */
 footer{
     text-align: center;
     background-color: #353E48;
