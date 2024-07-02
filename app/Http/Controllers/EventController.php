@@ -10,9 +10,17 @@ class EventController extends Controller
 {
     public function index()
     {
-        $events = Event::all();
+        $seacrh = request('search');
 
-        return view('welcome', ['events' => $events]);
+        if($seacrh) {
+            $events = Event::where([
+                ['title', 'like', '%'.$seacrh.'%']
+            ])->get();
+        } else {
+            $events = Event::all();
+        }
+
+        return view('welcome', ['events' => $events, 'search' => $seacrh]);
     }
 
     public function create()
