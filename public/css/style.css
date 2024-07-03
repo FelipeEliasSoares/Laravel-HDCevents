@@ -44,6 +44,19 @@ header{
     padding: 10px;
 }
 
+#info-container .already-joined-msg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin: 15px 0;
+    color: #004085;
+    background-color: #cce5ff;
+    border: 1px solid #b8daff;
+    padding: 10px;
+    width: 275px;
+}
+
 /* Navbar */
 
 
@@ -167,6 +180,10 @@ header{
     display: flex;
 }
 
+#description-container{
+    margin-top: 30px;
+}
+
 #info-container h3,
 #description-container h3{
     font-size: 20px;
@@ -210,6 +227,34 @@ header{
     color: #757575;
 }
 
+
+/* Dashboard */
+.dashoboard-title-container{
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.dashoboard-events-container th{
+    width: 25%;
+    
+}
+
+.dashoboard-events-container form{
+    display: inline-block;
+}
+
+table a{
+    text-decoration: none;
+}
+
+/* Edit page */
+
+.img-preview{
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Footer */
 footer{
     text-align: center;
     background-color: #353E48;
