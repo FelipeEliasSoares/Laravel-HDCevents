@@ -230,6 +230,13 @@ header{
     display: inline-block;
 }
 
+/* Edit page */
+
+.img-preview{
+    width: 100%;
+    margin-top: 20px;
+}
+
 /* Footer */
 footer{
     text-align: center;
