@@ -222,8 +222,12 @@ header{
 }
 
 .dashoboard-events-container th{
-    font-size: 36px;
-    font-weight: 900;
+    width: 25%;
+    
+}
+
+.dashoboard-events-container form{
+    display: inline-block;
 }
 
 /* Footer */
