@@ -67,7 +67,7 @@
                         <td scope="row">{{ $loop->index + 1 }}</td>
                         <td><a href="/events/{{ $event->id }}" style="text-decoration: underline;">{{ $event->title }}</a></td>
                         <td>{{ $event->users->count() }}</td>
-                        <td class="align-middle">
+                        <td>
                             <form action="/events/leave/{{ $event->id }}" method="POST">
                                 @csrf
                                 @method('DELETE')
