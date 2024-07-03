@@ -18,6 +18,7 @@ jobs:
         ARGS: "-rltgoDzvO --delete"
         SOURCE: "./"
         REMOTE_HOST: "ec2-34-229-14-215.compute-1.amazonaws.com"
+        
         REMOTE_USER: "ubuntu"
         TARGET: "/var/www/html/example-app/"
         
