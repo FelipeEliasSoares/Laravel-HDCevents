@@ -230,6 +230,10 @@ header{
     display: inline-block;
 }
 
+table a{
+    text-decoration: none;
+}
+
 /* Edit page */
 
 .img-preview{
