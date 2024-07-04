@@ -9,7 +9,7 @@
 
 </div>
 <div class="col-md-10 offset-md-1 dashboard-title-container">
-    @if(count($events) > 0)
+    @if(count($events ?? []) > 0)
         <a href="/events/create" class="btn btn-primary">Criar evento</a>
     @else
         <p>Você ainda não tem eventos, <a href="/events/create">criar evento</a></p>

@@ -9,7 +9,7 @@
 </div>
 
 <div class="col-md-10 offset-md-1 dashboard-title-container">
-    @if(count($events) > 0)
+    @if(count($events ?? []) > 0)
         <table class="table">
             <thead>
                 <tr>
